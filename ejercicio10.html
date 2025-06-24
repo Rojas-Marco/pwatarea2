@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 10 - Juego de Preguntas</title>
+        <style>
+        body 
+        {
+            margin: 0;
+            background-color: #e3f2fd; /* Fondo suave azul claro */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .contenido 
+        {
+            background-color: #ffffff; /* Fondo blanco del cuadro */
+            padding: 30px;
+            border: 2px solid #42a5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .pregunta 
+        {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .opcion 
+        {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #bbdefb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .opcion:hover 
+        {
+            background-color: #90caf9;
+        }
+        .boton-inicio 
+        {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1976d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .boton-inicio:hover 
+        {
+            background-color: #0d47a1;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="contenido">
+            <h2>Ejercicio 10 - Juego de Preguntas</h2>
+            <div class="pregunta" id="pregunta">¿Cuál es la capital de Francia?</div>
+            <button class="opcion" onclick="responder('Madrid')">Madrid</button>
+            <button class="opcion" onclick="responder('París')">París</button>
+            <button class="opcion" onclick="responder('Berlín')">Berlín</button>
+            <button class="opcion" onclick="responder('Roma')">Roma</button>
+    </div>
+
+    <a href="../index.html" class="boton-inicio">INICIO</a>
+
+            <script>
+                function responder(respuesta) 
+                {
+                if (respuesta === 'París') {
+                    alert('¡Correcto!');
+                } else {
+                    alert('Incorrecto. La respuesta correcta es París.');
+                }
+                }
+            </script>
+
+    </body>
+</html>
+

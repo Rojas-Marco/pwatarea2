@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4 - Reloj Analógico</title>
+        <style>
+            body 
+            {
+            margin: 0;
+            background-color: #e6f7ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            }
+            .reloj 
+            {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 10px solid #007acc;
+            border-radius: 50%;
+            background: white;
+            }
+            .manecilla 
+            {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: rotate(0deg);
+            }
+            .hora 
+            {
+            width: 6px;
+            height: 80px;
+            background-color: #333;
+            z-index: 3;
+            }
+            .minuto 
+            {
+            width: 4px;
+            height: 110px;
+            background-color: #007acc;
+            z-index: 2;
+            }
+            .segundo 
+            {
+            width: 2px;
+            height: 130px;
+            background-color: red;
+            z-index: 1;
+            }
+            .numero 
+            {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            transform: translate(-50%, -50%);
+            }
+            .n1  { top: 20%; left: 80%; }
+            .n2  { top: 32%; left: 92%; }
+            .n3  { top: 50%; left: 96%; }
+            .n4  { top: 68%; left: 92%; }
+            .n5  { top: 80%; left: 80%; }
+            .n6  { top: 88%; left: 50%; }
+            .n7  { top: 80%; left: 20%; }
+            .n8  { top: 68%; left: 8%; }
+            .n9  { top: 50%; left: 4%; }
+            .n10 { top: 32%; left: 8%; }
+            .n11 { top: 20%; left: 20%; }
+            .n12 { top: 12%; left: 50%; }
+            #hora-digital 
+            {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            }
+            .boton-inicio 
+            {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            }
+            .boton-inicio:hover 
+            {
+            background-color: #1e7e34;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="reloj">
+            <!-- Números -->
+            <div class="numero n1">1</div>
+            <div class="numero n2">2</div>
+            <div class="numero n3">3</div>
+            <div class="numero n4">4</div>
+            <div class="numero n5">5</div>
+            <div class="numero n6">6</div>
+            <div class="numero n7">7</div>
+            <div class="numero n8">8</div>
+            <div class="numero n9">9</div>
+            <div class="numero n10">10</div>
+            <div class="numero n11">11</div>
+            <div class="numero n12">12</div>
+            <!-- Manecillas -->
+            <div id="hora" class="manecilla hora"></div>
+            <div id="minuto" class="manecilla minuto"></div>
+            <div id="segundo" class="manecilla segundo"></div>
+        </div>
+
+             <div id="hora-digital">00:00:00</div>
+             <a href="../index.html" class="boton-inicio">INICIO</a>
+
+            <script>
+                function actualizarReloj() 
+                {
+                    const ahora = new Date();
+                    const segundos = ahora.getSeconds();
+                    const minutos = ahora.getMinutes();
+                    const horas = ahora.getHours();
+
+                    const anguloSegundo = segundos * 6;
+                    const anguloMinuto = minutos * 6 + segundos * 0.1;
+                    const anguloHora = (horas % 12) * 30 + minutos * 0.5;
+
+                    document.getElementById('segundo').style.transform = `rotate(${anguloSegundo}deg)`;
+                    document.getElementById('minuto').style.transform = `rotate(${anguloMinuto}deg)`;
+                    document.getElementById('hora').style.transform = `rotate(${anguloHora}deg)`;
+
+                    const formato = num => num.toString().padStart(2, '0');
+                    const horaDigital = `${formato(horas)}:${formato(minutos)}:${formato(segundos)}`;
+                    document.getElementById("hora-digital").textContent = horaDigital;
+                }
+
+                actualizarReloj(); // actualiza inmediatamente
+                setInterval(actualizarReloj, 1000); // luego cada segundo
+            </script>
+
+    </body>
+</html>
+
+

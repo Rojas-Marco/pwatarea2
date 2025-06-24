@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - Cambio de Imagen</title>
+      <style>
+        body 
+        {
+          background-color: #aae6e4;
+          text-align: center;
+          padding-top: 50px;
+        }
+        img 
+        {
+          width: 300px;
+          border-radius: 10px;
+          transition: 0.3s ease;
+        }
+        .boton-inicio 
+        {
+          display: inline-block;
+          margin-top: 30px;
+          padding: 10px 20px;
+          background-color: #007acc;
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+        }
+        .boton-inicio:hover 
+        {
+          background-color: #005999;
+        }
+      </style>
+  </head>
+  <body>
+
+    <h2>Pasa el mouse sobre la imagen</h2>
+    <img id="miImagen" src="imagen1.jpg"
+        onmouseover="cambiarImagen()" 
+        onmouseout="restaurarImagen()" 
+        alt="Imagen" />
+
+    <a href="../index.html" class="boton-inicio">INICIO</a>
+    
+      <script>
+        function cambiarImagen() 
+        {
+          document.getElementById("miImagen").src = "imagen2.jpg";
+        }
+
+        function restaurarImagen() 
+        {
+          document.getElementById("miImagen").src = "imagen1.jpg";
+        }
+      </script>
+
+  </body>
+</html>
+

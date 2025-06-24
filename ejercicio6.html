@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        body 
+        {
+            margin: 0;
+            background-color: #acd5f9; /* Fondo suave */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .boton-inicio 
+        {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .boton-inicio:hover {
+        background-color: #1e7e34;
+        }
+        #tareas li { margin: 5px 0; }
+        .eliminar { color: red; cursor: pointer; margin-left: 10px; }
+    </style>
+    </head>
+<body>
+  <h2>Lista de Tareas</h2>
+  <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+  <button onclick="agregarTarea()">Agregar</button>
+  <ul id="tareas"></ul>
+  <a href="../index.html" class="boton-inicio">INICIO</a>
+
+  <script>
+    function agregarTarea() {
+      let texto = document.getElementById("nuevaTarea").value;
+      if (texto === "") return;
+      let li = document.createElement("li");
+      li.innerHTML = texto + "<span class='eliminar' onclick='this.parentElement.remove()'>❌</span>";
+      document.getElementById("tareas").appendChild(li);
+      document.getElementById("nuevaTarea").value = "";
+    }
+  </script>
+</body>
+</html>

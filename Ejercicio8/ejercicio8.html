@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <title>Ejercicio 8 - Carrusel de Imágenes</title>
+      <style>
+      body 
+      {
+          margin: 0;
+          background-color: #f0f4c3; /* Fondo suave */
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          font-family: Arial, sans-serif;
+      }
+      .contenido 
+      {
+          background-color: #ffffff; /* Fondo del cuadro */
+          padding: 20px;
+          border-radius: 10px;
+          border: 2px solid #cddc39;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          width: 350px;
+      }
+      #carrusel 
+      {
+          width: 300px;
+          height: 200px;
+          margin-bottom: 15px;
+          object-fit: cover;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+      }
+      button 
+      {
+          padding: 10px 15px;
+          margin: 5px;
+          background-color: #8bc34a;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #689f38;
+      }
+
+      .boton-inicio 
+      {
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #4caf50;
+          color: white;
+          text-decoration: none;
+          border-radius: 10px;
+          font-weight: bold;
+      }
+      .boton-inicio:hover 
+      {
+          background-color: #388e3c;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="contenido">
+        <h2>Ejercicio 8 - Carrusel de Imágenes</h2>
+        <img id="carrusel" src="ciudad.jpg" alt="Carrusel">
+        <br>
+        <button onclick="anterior()">Anterior</button>
+        <button onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <a href="../index.html" class="boton-inicio">INICIO</a>
+
+        <script>
+          const imagenes = ["paisaje.jpg", "ciudad.jpg", "playa.jpg"];
+          let indice = 0;
+        function mostrarImagen() 
+        {
+            document.getElementById("carrusel").src = imagenes[indice];
+        }
+        function siguiente() 
+        {
+            indice = (indice + 1) % imagenes.length;
+          mostrarImagen();
+        }
+        function anterior() 
+        {
+          indice = (indice - 1 + imagenes.length) % imagenes.length;
+          mostrarImagen();
+        }
+      </script>
+
+
+  </body>
+</html>

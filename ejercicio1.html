@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 1</title>
+            <style>
+                body
+                {
+                background-color: #59a9f0f1; /* fondo azul claro */
+                }
+                #caja 
+                {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+                margin: auto;
+                }
+                .boton-inicio 
+                {
+                display: block;
+                width: fit-content;
+                margin: 40px auto;
+                padding: 12px 25px;
+                background-color: #28a745;
+                color: white;
+                text-decoration: none;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                }
+                .boton-inicio:hover 
+                {
+                background-color: #1e7e34;
+                }
+            </style>
+    </head>
+    <body>
+    <div id="caja"></div>
+    <button onclick="cambiarColor()">Cambiar Color</button>
+
+        <script>
+            function cambiarColor() {
+            document.getElementById("caja").style.backgroundColor = "tomato";
+            }
+        </script>
+
+    <a href="index.html" class="boton-inicio">INICIO</a>
+
+    </body>
+</html>
+

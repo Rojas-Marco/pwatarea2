@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 9 - Temporizador</title>
+        <style>
+        body 
+        {
+            margin: 0;
+            background-color: #fce4ec; 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .contenido 
+        {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #f06292;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        #temporizador 
+        {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d81b60;
+            margin: 20px 0;
+        }
+        .boton-inicio 
+        {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ec407a;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .boton-inicio:hover 
+        {
+            background-color: #c2185b;
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="contenido">
+            <h2>Ejercicio 9 - Temporizador</h2>
+            <div id="temporizador">00:00</div>
+        </div>
+
+    <a href="../index.html" class="boton-inicio">INICIO</a>
+
+        <script>
+                let tiempo = 1/5 * 60;
+
+                function actualizarTemporizador() 
+                {
+                const minutos = Math.floor(tiempo / 60);
+                const segundos = tiempo % 60;
+                const formato = n => n.toString().padStart(2, '0');
+                document.getElementById("temporizador").textContent = `${formato(minutos)}:${formato(segundos)}`;
+                
+                if (tiempo > 0) {
+                    tiempo--;
+                } else {
+                    clearInterval(cuenta);
+                    alert("¡Tiempo Finalizado!");
+                }
+                }
+
+                actualizarTemporizador(); 
+                const cuenta = setInterval(actualizarTemporizador, 1000);
+        </script>
+
+    </body>
+</html>

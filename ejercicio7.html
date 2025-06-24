@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 7 - Menú Desplegable</title>
+        <style>
+            body 
+            {
+                margin: 0;
+                padding: 0;
+                background-color: #e0f7fa;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-family: Arial, sans-serif;
+            }
+            .contenido 
+            {
+                background-color: #ffffff; 
+                padding: 30px;
+                border-radius: 10px;
+                border: 2px solid #00796b;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                width: 300px;
+            }
+            nav ul 
+            {
+                list-style: none;
+                padding: 0;
+            }
+            nav ul li 
+            {
+                background-color: #00796b;
+                color: white;
+                padding: 10px;
+                margin: 5px 0;
+                cursor: pointer;
+                position: relative;
+            }
+            nav ul li:hover 
+            {
+                background-color: #004d40;
+            }
+            .submenu 
+            {
+                display: none;
+                background-color: #b2dfdb;
+                padding: 5px;
+                margin-top: 5px;
+            }
+            .boton-inicio 
+            {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #388e3c;
+                color: white;
+                text-decoration: none;
+                border-radius: 10px;
+                font-weight: bold;
+            }
+            .boton-inicio:hover 
+            {
+                background-color: #2e7d32;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="contenido">
+            <h2>Ejercicio 7 - Menú Desplegable</h2>
+            <nav>
+            <ul>
+                <li onclick="toggleMenu('submenu1')">Clase Práctica
+                <div id="submenu1" class="submenu">
+                    <p>Clase Práctica 1</p>
+                    <p>Clase Práctica 2</p>
+                </div>
+                </li>
+                <li onclick="toggleMenu('submenu2')">Tarea Práctica
+                <div id="submenu2" class="submenu">
+                    <p>Tarea Práctica 1</p>
+                    <p>Tarea Práctica 2</p>
+                </div>
+                </li>
+            </ul>
+            </nav>
+        </div>
+
+        <a href="../index.html" class="boton-inicio">INICIO</a>
+
+            <script>
+                function toggleMenu(id) 
+                {
+                const submenu = document.getElementById(id);
+                submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
+                }
+            </script>
+
+    </body>
+</html>
+
